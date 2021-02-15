@@ -5,6 +5,11 @@ import java.util.List;
 
 import javax.faces.bean.*;
 
+
+/*
+ * A class that uses the order.java model to make a list of orders.
+ * 
+ */
 @ManagedBean
 @ViewScoped
 public class Orders 

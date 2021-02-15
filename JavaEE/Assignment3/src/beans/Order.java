@@ -6,6 +6,11 @@ public class Order
 	private String ProductName;
 	private float Price;
 	private int Quantity;
+	/*
+	 * The order model to make a order.
+	 * Properties include order number, product name, price and quantity.
+	 * 
+	 */
 	
 	public String getOrderNumber() {
 		return OrderNumber;

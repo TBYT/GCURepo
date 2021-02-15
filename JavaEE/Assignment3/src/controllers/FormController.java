@@ -6,9 +6,12 @@ import javax.faces.context.FacesContext;
 
 import beans.User;
 
+
+/*
+ * Controller to direct our web routes.
+ */
 @ManagedBean
 @ViewScoped
-
 public class FormController 
 {
 	public String onSubmit(User user)
