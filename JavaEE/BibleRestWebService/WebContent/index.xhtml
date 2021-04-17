@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+
+<h:head></h:head>
+
+<h:body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+  <ui:define name="title">Home</ui:define>
+<ui:define name="content">
+    <div class="navbar navbar-light navbar-expand-md navigation-clean-button" style="font-size: 26px;">
+        <div class="container" align="left">
+        <h:form>
+            <div class="collapse navbar-collapse" id="navcol-1">
+            <h3><label class="navbar-brand">Search: </label></h3>
+            Book:<h:inputText id="bookName" value="#{searchModel.bookName}"/><h:message for="bookName"/>
+            &nbsp;Chapter:<h:inputText type="numbers" id="chapterName" value="#{searchModel.chapterName}"/><h:message for="chapterName"/>
+            &nbsp;Verse:<h:inputText type="numbers" id="verseName" value="#{searchModel.verseName}"/><h:message for="verseName"/>
+                <ul class="navbar-nav mr-auto">
+                 &nbsp;<li class="nav-item"><h:commandButton class="btn btn-light action-button" action="#{formController.onSubmit(searchModel)}" value="GO"/></li>
+                </ul>
+            </div>
+                <br/>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <label class="navbar-brand" style="font-size: 20px;">Optional: </label>
+                Callback Type:<h:inputText id="callbackType" value="#{searchModel.callbackType}"/><h:message for="callbackType"/>
+            &nbsp;Translation Type:<h:inputText id="translationType" value="#{searchModel.translationType}"/><h:message for="translationType"/>
+            &nbsp;Verse Numbers:&nbsp;<h:selectOneRadio id="showVerseNumbers" value="#{searchModel.showVerseNumbers}">
+            	<f:selectItem itemValue="true" itemLabel="On&nbsp;" />
+            	<f:selectItem itemValue="false" itemLabel="Off&nbsp;" />
+        	</h:selectOneRadio>
+            </div>
+          </h:form>
+        </div>
+    </div>
+    </ui:define>
+</ui:composition>
+</h:body>
+</html>

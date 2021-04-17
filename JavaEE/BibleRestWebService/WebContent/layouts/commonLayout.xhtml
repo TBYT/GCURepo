@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+	<title><ui:insert name="title">Bible App</ui:insert></title>
+	<h:outputStylesheet library="css" name="common-styles.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="table-style.css"></h:outputStylesheet>
+	<h:outputStylesheet library="assets" name="bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="assets" name="css/Navigation-with-Button.css"></h:outputStylesheet>
+	<h:outputStylesheet library="assets" name="css/styles.css"></h:outputStylesheet>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</h:head> 
+
+<h:body> 
+<div id="page">
+<!-- Insert Header Facelet here.  -->
+<div id="header" align="center">
+<ui:insert name="header">
+<ui:include src="/layouts/commonHeader.xhtml"></ui:include>
+</ui:insert>
+</div>
+<!-- Insert Content Facelet here.  -->
+<div id="content" align="center">
+<h5>
+<f:view>
+<ui:insert name="content">
+<ui:include src="/layouts/commonContent.xhtml"></ui:include>
+</ui:insert>
+</f:view>
+</h5>
+</div>
+<!-- Insert Footer Facelet here.  -->
+<div id="footer" align="center">
+<ui:insert name="footer">
+<ui:include src="/layouts/commonFooter.xhtml"></ui:include>
+</ui:insert>
+</div>
+<!--  -->
+</div>
+</h:body> 
+</html>

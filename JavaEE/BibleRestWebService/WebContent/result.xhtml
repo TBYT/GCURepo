@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:body>
+<ui:composition template="/layouts/commonLayout.xhtml">
+<ui:define name="title">BibleApp - Result from Search</ui:define>
+<ui:define name="content">
+<div align="center">
+ Hello, . Your results are:<br /><br/>
+ <h:dataTable styleClass="order-table" 
+		headerClass="order-table-header" 
+		footerClass="footer" 
+		rowClasses="order-table-even-row, order-table-odd-row">
+ <h:row>
+<f:facet name="header">Book: </f:facet>
+#{book}
+</h:row>
+ <h:row>
+<f:facet name="header"> Chapter: </f:facet>
+#{chapter}
+</h:row>
+<h:row>
+ <f:facet name="header">Translation: </f:facet>
+#{translation}
+</h:row>
+ <h:row>
+ <f:facet name="header">Text: </f:facet>
+#{text}
+</h:row>
+ 
+ </h:dataTable>
+ </div>
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

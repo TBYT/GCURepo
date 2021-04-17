@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"data","l":"BibleDataService"},{"p":"business","l":"BibleRestService"},{"p":"business","l":"BusinessInterface"},{"p":"business","l":"BusinessService"},{"p":"data","l":"DataAccessInterface"},{"p":"controllers","l":"FormController"},{"p":"beans","l":"SearchModel"}]
