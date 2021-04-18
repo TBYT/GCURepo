@@ -1,0 +1,124 @@
+﻿@model IEnumerable<BibleVerseApp.Models.BibleVerse>
+@{
+    ViewBag.Title = "Bible Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* ----------- Hero Area ------------*@
+<style>
+    table
+    {
+        font-family: Arial, sans-serif;
+        font-size:13px;
+        width:95%;
+    }
+    td, th
+    {
+        text-align: left;
+        padding: 8px;
+    }
+    hr.gray
+    {
+        border: 2px solid gray;
+        border-radius: 5px;
+        margin: 10px 0 10px 0;
+    }
+</style>
+
+<div class="main">
+    <div id="banner">
+        <div class="text1">
+            SEARCH<span>Your Bible</span><p>
+                Search your favorite Bible version with any keyword
+                - then view all the matching verse selections.
+            </p>
+        </div>
+        <a href="#" class="button_top">Order A Bible Online</a>
+    </div>
+</div>
+    @* ----------- End Hero Area ------------*@
+<div class="main">
+    <!-- Content -->
+    @* The <section> tag is the structural HTML element used to group together related elements.
+        Each <section> tag typically includes one or more heading elements presenting related content.*@
+    <section id="content">
+        @* The HTML <article> tag represents a self-contained composition in a 
+            doc, page, application, or site which is intended to independently dis or reusable.
+            Notice this is column 1...*@
+        <article class="col1">
+            <div class="pad_1">
+                <h2>Bible Search Guide</h2>
+                <form id="form_1" method="POST" asp-controller="Bible" asp-action="Index">
+                    <div class="wrapper pad_bot1">
+                        <div class="radio">
+                            <input type="radio" id="OT" name="Testament" value="OT" />
+                            <label for="OT">Old Testament</label><br />
+                            <input type="radio" id="NT" name="Testament" value="NT" />
+                            <label for="NT">New Testament</label><br />
+                            <input type="radio" checked="checked" id="Both" name="Testament" value="Both" />
+                            <label for="Both">Both</label><br />
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        Bible Version: 
+                        <div class="bg">
+                            <select name="BibleVersion" id="BibleVersion">
+                                <option value="t_kjv">King James Version</option>
+                                <option selected="selected" value="t_asv">American Standard</option>
+                                <option value="t_bbe">Bible in Basic English</option>
+                                <option value="t_web">World English Bible</option>
+                                <option value="t_ylt">Young's Literal Translation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        Search Text: 
+                        <div class="bg">
+                            <input type="text" name="Text" class="input input1" value="Enter Text To Search" 
+                                   onblur="if (this.value == '') this.value = 'Enter Text to Search'"
+                                   onfocus="if (this.value == 'Enter Text To Search') this.value=''" />
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Search" class="button2" />
+                    </div>
+                </form>
+            </div>
+        </article>
+        <article class="col2 pad_left1">
+            <h2>Search Results</h2>
+            @if(Model.Count() == 0)
+            {
+                <h3>No results.</h3>
+            }
+            <table>
+                @foreach(var verse in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => verse.BookName)
+                            &nbsp;
+                            @Html.DisplayFor(modelItem => verse.Chapter)
+                            :
+                            @Html.DisplayFor(modelItem => verse.Verse)
+                            &nbsp; &nbsp;
+                            @Html.DisplayFor(modelItem => verse.OT_NT)
+                        </td>
+                        <td style="text-align:right">
+                            Genre:&nbsp;
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => verse.Genre)
+                        </td>
+                    </tr>
+                    <tr style="font-weight:bold">
+                        <td colspan="3">
+                            @Html.DisplayFor(modelItem => verse.Text)
+                            <hr class="gray"/>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </article>
+    </section>
+    <!--End Content-->
+</div>
